@@ -15,7 +15,8 @@ npm run preview  # serve o build localmente
 
 Todo o conteúdo (textos, tecnologias, projetos, experiência e links) fica em `src/data/site.ts`.
 O site é bilíngue: português em `/` e inglês em `/en/`. Textos com `{ pt, en }` têm uma versão por idioma, e os textos fixos da interface (menu, botões, títulos) ficam em `src/i18n/ui.ts`.
-O currículo em PDF fica em `public/matheus-ferreira-curriculo.pdf`.
+Os currículos em PDF ficam em `public/`: `matheus-ferreira-curriculo.pdf` (PT) e `matheus-ferreira-resume.pdf` (EN).
+O PDF em inglês é gerado a partir de `resume/resume-en.html`. Depois de editar o HTML, rode o comando que está no topo do arquivo.
 
 ## Estrutura
 

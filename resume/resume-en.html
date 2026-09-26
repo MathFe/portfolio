@@ -1,0 +1,136 @@
+<!doctype html>
+<!--
+  Fonte do currículo em inglês (public/matheus-ferreira-resume.pdf).
+  Para regerar o PDF depois de editar:
+  msedge --headless --no-pdf-header-footer --print-to-pdf=public/matheus-ferreira-resume.pdf resume/resume-en.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Matheus Ferreira — Resume</title>
+<style>
+  @page { size: A4; margin: 11mm 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.6pt;
+    line-height: 1.3;
+    color: #222;
+  }
+  h1 { margin: 0; font-size: 22pt; line-height: 1.1; color: #111; }
+  .subtitle { margin: 2pt 0 3pt; font-size: 12pt; color: #2b5a8c; }
+  .contact { color: #666; font-size: 9pt; }
+  .contact a { color: inherit; text-decoration: none; }
+  h2 {
+    margin: 9pt 0 4pt;
+    padding-bottom: 2pt;
+    font-size: 12pt;
+    color: #2b5a8c;
+    text-transform: uppercase;
+    border-bottom: 1px solid #2b5a8c;
+  }
+  p { margin: 0; }
+  .skills p { margin: 1pt 0; }
+  .item { margin-bottom: 5pt; page-break-inside: avoid; }
+  .item h3 { margin: 0; font-size: 9.8pt; color: #111; }
+  .meta { color: #777; font-size: 8.6pt; }
+  ul { margin: 1pt 0 0; padding-left: 13pt; }
+  li { margin: 0.5pt 0; }
+</style>
+</head>
+<body>
+  <h1>Matheus Ferreira</h1>
+  <p class="subtitle">Back-end Java Developer | Spring Boot</p>
+  <p class="contact">+55 (12) 99644-5529 | matheusferreirasjc@gmail.com | São José dos Campos, SP, Brazil</p>
+  <p class="contact">
+    Portfolio: <a href="https://mathfe.dev/en/">mathfe.dev</a> |
+    GitHub: <a href="https://github.com/MathFe">github.com/MathFe</a> |
+    LinkedIn: <a href="https://www.linkedin.com/in/matheus-ferreira-044352165/">linkedin.com/in/matheus-ferreira-044352165</a>
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    Back-end developer with about 2 years of professional experience with Java at General Motors, building
+    automation and integration solutions for industrial processes. I develop REST APIs with Java 21, Spring Boot,
+    Spring Security, JPA/Hibernate and PostgreSQL, running on Docker and versioned with Git.
+  </p>
+
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <p><b>Languages:</b> Java, Python, JavaScript, PHP, SQL</p>
+    <p><b>Back end:</b> Spring Boot, Spring Security, JWT, Spring Data JPA, Hibernate, REST APIs, MapStruct, Django</p>
+    <p><b>Databases:</b> PostgreSQL, MySQL, Flyway</p>
+    <p><b>Tools:</b> Docker, Git, GitHub, IntelliJ IDEA</p>
+    <p><b>Front end:</b> React, JavaScript</p>
+    <p><b>Methodologies:</b> Agile (Scrum)</p>
+    <p><b>Languages spoken:</b> Portuguese (native), English (advanced)</p>
+  </div>
+
+  <h2>Professional Experience</h2>
+  <div class="item">
+    <h3>Industrial Robot Programmer</h3>
+    <p class="meta">General Motors do Brasil – São José dos Campos, SP | Jul 2024 – Present</p>
+    <ul>
+      <li>Developing automation and integration solutions for more than 250 industrial processes.</li>
+      <li>Using Java in supervision, monitoring and data analysis systems for production lines.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <h3>IT Maintenance and Support Technician</h3>
+    <p class="meta">Retífica Paraíso LTDA – São José dos Campos, SP | Jan 2022 – Jul 2024</p>
+    <ul>
+      <li>Maintenance of computers and industrial machines; software installation and configuration.</li>
+      <li>Technical support for users and basic network and equipment configuration.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <h3>Technical Support Intern</h3>
+    <p class="meta">Lotus Cell – São José dos Campos, SP | Jan 2021 – Jan 2022</p>
+    <ul>
+      <li>Ticket analysis and resolution, including SQL database queries.</li>
+      <li>Supported application maintenance, feature validation and bug identification using Python and Django.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <h3>SENAI Apprentice</h3>
+    <p class="meta">General Motors do Brasil – São José dos Campos, SP | Jan 2019 – Dec 2020</p>
+    <ul>
+      <li>Maintenance and operation of industrial systems, automation, equipment control and technical diagram reading.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="item">
+    <h3>Finance API – Personal finance REST API</h3>
+    <p class="meta">github.com/MathFe/finance-api | Java 21, Spring Boot, Spring Security, JWT, PostgreSQL, Docker, Flyway, MapStruct, React</p>
+    <ul>
+      <li>User registration and authentication with JWT; management of categories and financial transactions.</li>
+      <li>Layered architecture (entity, repository, DTO, service, controller) and database migrations with Flyway.</li>
+      <li>PostgreSQL database running in a Docker container and a basic React front end.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <h3>Production Control System – Press Line (in progress)</h3>
+    <p class="meta">github.com/MathFe/production-control | Java 21, Spring Boot, PostgreSQL, Docker, Flyway, MapStruct</p>
+    <ul>
+      <li>Control of raw materials, production orders and finished goods inventory, based on a real industrial process.</li>
+      <li>Business rules with order state transitions (planned, in progress, completed) and stock levels (high, medium, critical).</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="item">
+    <h3>Bachelor's Degree in Computer Science (in progress)</h3>
+    <p class="meta">Universidade Paulista (UNIP) – São José dos Campos, SP | Jan 2026 – Dec 2029</p>
+  </div>
+  <div class="item">
+    <h3>Postgraduate Degree in Artificial Intelligence and Machine Learning</h3>
+    <p class="meta">Anhanguera – São José dos Campos, SP | Jan 2024 – Oct 2025</p>
+  </div>
+  <div class="item">
+    <h3>Associate Degree in Back-end Development</h3>
+    <p class="meta">Anhanguera – São José dos Campos, SP | Jan 2021 – Jan 2024</p>
+  </div>
+</body>
+</html>

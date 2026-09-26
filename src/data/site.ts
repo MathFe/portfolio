@@ -28,10 +28,10 @@ export const links = {
   email: 'matheusferreirasjc@gmail.com',
   github: 'https://github.com/MathFe',
   linkedin: 'https://www.linkedin.com/in/matheus-ferreira-044352165/',
-  // Para ter um currículo em inglês, coloque o PDF em /public e troque o caminho em "en".
+  // O PDF em inglês é gerado a partir de resume/resume-en.html (instruções no próprio arquivo).
   resume: {
     pt: '/matheus-ferreira-curriculo.pdf',
-    en: '/matheus-ferreira-curriculo.pdf',
+    en: '/matheus-ferreira-resume.pdf',
   } as Localized,
 };
 
