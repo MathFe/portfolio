@@ -1,21 +1,25 @@
 ---
 import { about, skills, education } from '../data/site';
+import { getLang, useTranslations } from '../i18n/ui';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
-<section id="sobre">
+<section id={t('id.about')}>
   <div class="container">
-    <h2 class="section-title"><span>01.</span>Sobre mim</h2>
+    <h2 class="section-title"><span>01.</span>{t('about.title')}</h2>
     <div class="grid">
       <div>
         <div class="text">
-          {about.map((p) => <p>{p}</p>)}
+          {about.map((p) => <p>{p[lang]}</p>)}
         </div>
-        <h3>Formação</h3>
+        <h3>{t('about.education')}</h3>
         <ul class="edu">
           {education.map((e) => (
             <li>
-              <strong>{e.course}</strong>
-              <span>{e.school} · {e.period}</span>
+              <strong>{e.course[lang]}</strong>
+              <span>{e.school} · {e.period[lang]}</span>
             </li>
           ))}
         </ul>
@@ -23,7 +27,7 @@ import { about, skills, education } from '../data/site';
       <div>
         {skills.map((s) => (
           <div class="group">
-            <h3>{s.group}</h3>
+            <h3>{s.group[lang]}</h3>
             <ul class="skills">
               {s.items.map((item) => <li>{item}</li>)}
             </ul>

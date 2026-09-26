@@ -1,31 +1,38 @@
 ---
 import '../styles/global.css';
 import { site } from '../data/site';
+import { getLang, homePath, languages, type Lang } from '../i18n/ui';
 
-interface Props {
-  title?: string;
-}
-
-const { title = `${site.name} · ${site.role}` } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
+const lang = getLang(Astro.currentLocale);
+const title = `${site.name} · ${site.role[lang]}`;
+const description = site.description[lang];
+const base = Astro.site ?? site.url;
+const canonical = new URL(Astro.url.pathname, base);
+const htmlLang = { pt: 'pt-BR', en: 'en' }[lang];
+const ogLocale = { pt: 'pt_BR', en: 'en_US' };
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <meta name="description" content={site.description} />
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {(Object.keys(languages) as Lang[]).map((l) => (
+      <link rel="alternate" hreflang={l === 'pt' ? 'pt-BR' : l} href={new URL(homePath(l), base)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(homePath('pt'), base)} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={site.description} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale[lang]} />
     <meta name="twitter:card" content="summary" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

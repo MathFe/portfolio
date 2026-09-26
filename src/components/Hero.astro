@@ -1,21 +1,25 @@
 ---
 import { site, links } from '../data/site';
+import { getLang, useTranslations } from '../i18n/ui';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
 <section class="hero">
   <div class="container">
     {site.available && (
-      <p class="status"><span class="dot"></span>Disponível para novas oportunidades</p>
+      <p class="status"><span class="dot"></span>{t('hero.available')}</p>
     )}
-    <p class="hello">Olá, eu sou</p>
+    <p class="hello">{t('hero.hello')}</p>
     <h1>{site.name}</h1>
-    <p class="role">{site.role} · {site.location}</p>
-    <p class="headline">{site.headline}</p>
-    <p class="intro">{site.intro}</p>
+    <p class="role">{site.role[lang]} · {site.location[lang]}</p>
+    <p class="headline">{site.headline[lang]}</p>
+    <p class="intro">{site.intro[lang]}</p>
     <div class="actions">
-      <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-      <a class="btn" href="#contato">Entrar em contato</a>
-      {links.resume && <a class="btn" href={links.resume} target="_blank">Currículo</a>}
+      <a class="btn btn-primary" href={`#${t('id.projects')}`}>{t('hero.cta.projects')}</a>
+      <a class="btn" href={`#${t('id.contact')}`}>{t('hero.cta.contact')}</a>
+      {links.resume[lang] && <a class="btn" href={links.resume[lang]} target="_blank">{t('hero.cta.resume')}</a>}
     </div>
   </div>
 </section>

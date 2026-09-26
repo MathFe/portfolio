@@ -1,5 +1,9 @@
 ---
 import { site, links } from '../data/site';
+import { getLang, useTranslations } from '../i18n/ui';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
 
 const socials = [
   { label: 'GitHub', href: links.github },
@@ -8,13 +12,11 @@ const socials = [
 const year = new Date().getFullYear();
 ---
 
-<section id="contato">
+<section id={t('id.contact')}>
   <div class="container center">
-    <h2 class="section-title"><span>04.</span>Contato</h2>
-    <p class="big">Vamos conversar?</p>
-    <p class="muted">
-      Estou aberto a novas oportunidades, freelas e colaborações. Minha caixa de entrada está sempre aberta.
-    </p>
+    <h2 class="section-title"><span>04.</span>{t('contact.title')}</h2>
+    <p class="big">{t('contact.heading')}</p>
+    <p class="muted">{t('contact.text')}</p>
     <a class="btn btn-primary" href={`mailto:${links.email}`}>{links.email}</a>
     <ul>
       {socials.map((s) => (
@@ -26,7 +28,7 @@ const year = new Date().getFullYear();
 
 <footer>
   <div class="container">
-    <p>© {year} {site.name}. Feito com Astro.</p>
+    <p>© {year} {site.name}. {t('footer.made')}</p>
   </div>
 </footer>
 

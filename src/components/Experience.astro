@@ -1,18 +1,22 @@
 ---
 import { experience } from '../data/site';
+import { getLang, useTranslations } from '../i18n/ui';
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
-<section id="experiencia">
+<section id={t('id.experience')}>
   <div class="container">
-    <h2 class="section-title"><span>03.</span>Experiência</h2>
+    <h2 class="section-title"><span>03.</span>{t('experience.title')}</h2>
     <ol>
       {experience.map((job) => (
         <li>
-          <span class="period">{job.period}</span>
+          <span class="period">{job.period[lang]}</span>
           <div>
-            <h3>{job.role} <span>@ {job.company}</span></h3>
+            <h3>{job.role[lang]} <span>@ {job.company}</span></h3>
             <ul>
-              {job.description.map((d) => <li>{d}</li>)}
+              {job.description.map((d) => <li>{d[lang]}</li>)}
             </ul>
           </div>
         </li>
