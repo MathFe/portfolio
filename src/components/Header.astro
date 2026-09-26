@@ -1,0 +1,117 @@
+---
+import { site } from '../data/site';
+
+const nav = [
+  { href: '#sobre', label: 'Sobre' },
+  { href: '#projetos', label: 'Projetos' },
+  { href: '#experiencia', label: 'Experiência' },
+  { href: '#contato', label: 'Contato' },
+];
+const initials = site.name
+  .split(' ')
+  .map((n) => n[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<header>
+  <div class="container inner">
+    <a href="#" class="logo" aria-label="Início">{initials}<span>.</span></a>
+    <nav aria-label="Principal">
+      <ul>
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+      <button id="theme-toggle" type="button" aria-label="Alternar tema claro/escuro">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+  });
+</script>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+  .logo {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.15rem;
+  }
+  .logo span {
+    color: var(--accent);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul a {
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  ul a:hover {
+    color: var(--text);
+  }
+  button {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .moon {
+    display: none;
+  }
+  :global([data-theme='light']) .sun {
+    display: none;
+  }
+  :global([data-theme='light']) .moon {
+    display: block;
+  }
+  @media (max-width: 640px) {
+    ul {
+      display: none;
+    }
+  }
+</style>
